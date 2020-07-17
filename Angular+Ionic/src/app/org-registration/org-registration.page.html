@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Organization Registering</ion-title>
+  </ion-toolbar>
+    
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+    <ion-row>
+        <ion-col size="12">
+            <form [formGroup]="orgRegistrationForm">
+                <ion-item lines="none">
+                    <ion-label position="floating">Name of Organization</ion-label>
+                    <ion-input [(ngModel)]="org.orgName" formControlName="orgName" type="text" autofocus="true" required></ion-input>
+                </ion-item>
+                <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.orgName.valid  && (orgRegistrationForm.controls.orgName.dirty || orgRegistrationForm.controls.orgName.touched)">
+                  Enter valid Organization Name
+                </ion-text>
+
+                <ion-item lines="none">
+                    <ion-label position="floating">Type of Organization</ion-label>
+                    <ion-input [(ngModel)]="org.orgType" formControlName="orgType" type="text" autofocus="true" required></ion-input>
+                </ion-item>
+
+                <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.orgType.valid  && (orgRegistrationForm.controls.orgType.dirty || orgRegistrationForm.controls.orgType.touched)">
+                  Type of Organization required
+                </ion-text>
+
+                <ion-item lines="none">
+                    <ion-label position="floating">No. of Employees</ion-label>
+                    <ion-select [(ngModel)]="org.noOfEmployees" formControlName="noOfEmployees" required>
+                      <ion-select-option value="1-25">1-25</ion-select-option>
+                      <ion-select-option value="26-50">26-50</ion-select-option>
+                      <ion-select-option value="51-75">51-75</ion-select-option>
+                      <ion-select-option value="76-100">76-100</ion-select-option>
+                      <ion-select-option value="100+">100+</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.noOfEmployees.valid  && orgRegistrationForm.controls.noOfEmployees.dirty">
+                  Please select a number of employees field
+                </ion-text>
+
+                <ion-item lines="none">
+                  <ion-label position="floating">First Name</ion-label>
+                  <ion-input [(ngModel)]="org.firstName" formControlName="firstName" required></ion-input>
+                </ion-item>
+
+               <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.firstName.valid  && (orgRegistrationForm.controls.firstName.dirty || orgRegistrationForm.controls.firstName.touched)">
+               Please enter a valid First Name.
+              </ion-text>
+
+              <ion-item lines="none">
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input [(ngModel)]="org.lastName" formControlName="lastName" required></ion-input>
+            </ion-item>
+
+             <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.lastName.valid  && (orgRegistrationForm.controls.lastName.dirty || orgRegistrationForm.controls.lastName.touched)">
+             Please enter a valid Last Name.
+            </ion-text>
+
+                <ion-item lines="none">
+                    <ion-label position="floating">Email id</ion-label>
+                    <ion-input [(ngModel)]="org.email" formControlName="email" required></ion-input>
+                </ion-item>
+
+                 <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.email.valid  && (orgRegistrationForm.controls.email.dirty || orgRegistrationForm.controls.email.touched)">
+                 Please enter a valid email address.
+                </ion-text>
+
+                <ion-item lines="none">
+                    <ion-label position="floating">Contact No.</ion-label>
+                    <ion-input [(ngModel)]="org.number" formControlName="number" required></ion-input>    
+                </ion-item>
+
+                <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.number.valid  && (orgRegistrationForm.controls.number.dirty || orgRegistrationForm.controls.number.touched)">
+                  Please enter a valid Contact No.
+                 </ion-text>
+
+                <div class="formGroup">
+                  <ion-item lines="none">
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input [(ngModel)]="org.password" formControlName="password" type="password" required></ion-input>                    
+                  </ion-item>
+
+                  <!--<div *ngIf="orgRegistrationForm.password.touched && orgRegistrationForm.password.invalid" class="alert alert-danger">
+                    <div *ngIf="orgRegistrationForm.password.errors.required">Password is required.</div>
+                  </div>-->
+
+                  <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.password.valid  && (orgRegistrationForm.controls.password.dirty || orgRegistrationForm.controls.password.touched)">
+                    Password is required.
+                   </ion-text>
+                </div>
+
+                <div class="formGroup">
+                  <ion-item lines="none">
+                    <ion-label position="floating">Confirm Password</ion-label>
+                    <ion-input [(ngModel)]="org.confirmPassword" formControlName="confirmPassword" type="password" required></ion-input>                    
+                  </ion-item>
+
+                  <!--<div *ngIf="orgRegistrationForm.confirmPassword.touched && orgRegistrationForm.confirmPassword.invalid" class="alert alert-danger">
+                    <div *ngIf="orgRegistrationForm.confirmPassword.errors.required">Password is required.</div>
+                    <div *ngIf="orgRegistrationForm.confirmPassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+                </div>-->
+
+                 <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!orgRegistrationForm.controls.confirmPassword.valid  && (orgRegistrationForm.controls.confirmPassword.dirty || orgRegistrationForm.controls.confirmPassword.touched)">
+                    Confirm Password is required.
+                   </ion-text>
+              </div>
+
+
+            </form>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-centre">
+        <ion-button expand="block" color="medium" (click)="onSubmit()">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+

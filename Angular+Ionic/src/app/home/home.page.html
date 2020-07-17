@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home Page</ion-title>
+  </ion-toolbar>   
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1" size-sm></ion-col>
+      <ion-col size="10" size-sm>
+        <ion-card>
+          <h1>Login</h1>
+          <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <ion-item lines="none">
+                <ion-icon name="mail"></ion-icon>
+                <ion-input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="form.email" #email="ngModel" required></ion-input>
+
+                <div *ngIf="f.submitted && email.invalid">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                </div>
+              </ion-item>
+
+            </div>
+            
+            <div class="form-group">
+              <ion-item lines="none"> 
+                <ion-icon name="lock-closed"></ion-icon>
+                <ion-input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="form.password" #password="ngModel" required minlength="6"></ion-input>
+
+                <div *ngIf="f.submitted && password.invalid">
+                  <div *ngIf="password.errors.required">Password is required</div>
+                  <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </ion-item>
+            </div>
+            
+             
+            <ion-row>
+              <ion-col size="6">
+                <div class="form-group">
+                  <ion-button expand="block" color="secondary" class="btn-primary" (click)="onLogin()">
+                    Login In
+                  </ion-button>
+                  <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                    Login failed: {{errorMessage}}
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button expand="block" color="secondary" class="btn-primary" (click)="onSignup()">
+                  Register
+                </ion-button>
+              </ion-col>
+            </ion-row> 
+
+          </form>
+        </ion-card>
+      </ion-col>
+      <ion-col size="1" size-sm></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

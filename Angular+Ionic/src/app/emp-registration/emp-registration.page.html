@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Employee Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <form [formGroup]="empRegistrationForm">
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input [(ngModel)]="emp.firstName" formControlName="firstName" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.firstName.valid  && (empRegistrationForm.controls.firstName.dirty || empRegistrationForm.controls.firstName.touched)">
+            Please enter a valid First Name.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input [(ngModel)]="emp.lastName" formControlName="lastName" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.lastName.valid  && (empRegistrationForm.controls.lastName.dirty || empRegistrationForm.controls.lastName.touched)">
+            Please enter a valid Last Name.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">Company Registration Code</ion-label>
+            <ion-input [(ngModel)]="emp.orgRegCode" formControlName="orgRegCode" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.orgRegCode.valid  && (empRegistrationForm.controls.orgRegCode.dirty || empRegistrationForm.controls.orgRegCode.touched)">
+            Company Registration Code is required.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">Employee Id</ion-label>
+            <ion-input [(ngModel)]="emp.empId" formControlName="empId" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.empId.valid  && (empRegistrationForm.controls.empId.dirty || empRegistrationForm.controls.empId.touched)">
+            Employee Id is required.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input [(ngModel)]="emp.email" formControlName="email" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.email.valid  && (empRegistrationForm.controls.email.dirty || empRegistrationForm.controls.email.touched)">
+             Enter Valid email address.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">Contact no.</ion-label>
+            <ion-input [(ngModel)]="emp.number" formControlName="number" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.number.valid  && (empRegistrationForm.controls.number.dirty || empRegistrationForm.controls.number.touched)">
+            Company Registration Code is required.
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">ID Proof</ion-label>
+            <ion-select [(ngModel)]="emp.idProof" formControlName="idProof" required>
+              <ion-select-option value="aadharCard">Aadhar Card</ion-select-option>
+              <ion-select-option value="pancard">Pancard</ion-select-option>
+              <ion-select-option value="passport">Passport</ion-select-option>
+            </ion-select>
+          </ion-item>
+            <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!empRegistrationForm.controls.idProof.valid  && empRegistrationForm.controls.idProof.dirty">
+              Please select a number of employees field
+          </ion-text>
+
+          <ion-item>
+            <ion-label position="floating">ID Proof Value</ion-label>
+            <ion-input [(ngModel)]="emp.idProofValue" formControlName="idProofValue" required></ion-input>
+          </ion-item>
+          <ion-text class="ion-text-center ion-padding-start" color="danger"
+            *ngIf="!empRegistrationForm.controls.idProofValue.valid  && (empRegistrationForm.controls.idProofValue.dirty || empRegistrationForm.controls.idProofValue.touched)">
+            Company Registration Code is required.
+          </ion-text>
+
+          <div class="formGroup">
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input [(ngModel)]="emp.password" formControlName="password" type="password" required></ion-input>                    
+            </ion-item>
+            <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!empRegistrationForm.controls.password.valid  && (empRegistrationForm.controls.password.dirty || empRegistrationForm.controls.password.touched)">
+              Password is required.
+             </ion-text>
+          </div>
+
+          <div class="formGroup">
+            <ion-item>
+              <ion-label position="floating">Confirm Password</ion-label>
+              <ion-input [(ngModel)]="emp.confirmPassword" formControlName="confirmPassword" type="password" required></ion-input>                    
+            </ion-item>
+            <ion-text class="ion-text-center ion-padding-start" color="danger" *ngIf="!empRegistrationForm.controls.confirmPassword.valid  && (empRegistrationForm.controls.confirmPassword.dirty || empRegistrationForm.controls.confirmPassword.touched)">
+              Confirm Password is required.
+             </ion-text>
+          </div>          
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-centre">
+        <ion-button expand="block" color="medium" (click)="onNext()">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
